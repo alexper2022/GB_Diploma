@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Add printer</h1>
+
+<form method="post" th:action="@{add}" th:object="${newPrinter}">
+    Printer name: <input th:field="*{printerName}" type="text"/><br/>
+    Brand: <input th:field="*{printerBrand}" type="text"/><br/>
+    Model: <input th:field="*{printerModel}" type="text"/><br/>
+    Serial number: <input th:field="*{printerSerialNumber}" type="text"/><br/>
+    Is MFU: <select size="1" th:field="*{printerIsMFU}" type="text"/>
+    <option selected value="false">No</option>
+    <option value="true">Yes</option>
+    </select><br/>
+    Ip address: <input th:field="*{printerIpAddress}" type="text"/><br/>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

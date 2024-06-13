@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Delete monitor</h1>
+<form method="post" th:action="@{/monitor/delete/{id}(id=${monitorDel.getMonitorId()})}" th:object="${monitorDel}">
+    Id: <a th:text="${monitorDel.getMonitorId()}"></a> <br/>
+    Monitor name: <a th:text="${monitorDel.getMonitorName()}"/><br/>
+    Manufacturer: <a th:text="${monitorDel.getMonitorManufacturer()}"/><br/>
+    Model: <a th:text="${monitorDel.getMonitorModel()}"/><br/>
+    Serial number: <a th:text="${monitorDel.getMonitorSerialNumber()}"/><br/>
+    Diagonal: <a th:text="${monitorDel.getMonitorDiagonal()}"/><br/>
+    Resolution X: <a th:text="${monitorDel.getMonitorResolutionX()}"/><br/>
+    Resolution Y: <a th:text="${monitorDel.getMonitorResolutionY()}"/><br/>
+    Description: <a th:text="${monitorDel.getMonitorDescription()}"/><br/>
+    <p>You have delete monitor?</p>
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

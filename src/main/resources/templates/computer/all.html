@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>All computers</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Model</th>
+        <th>Processor</th>
+        <th>Freq.GHz</th>
+        <th>Ram</th>
+        <th>Size GB</th>
+        <th>VideoCard</th>
+        <th>Storage</th>
+        <th>Type</th>
+        <th>Size GB</th>
+        <th>OS Vendor</th>
+        <th>OS Version</th>
+        <th>OSArchitecture</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="item: ${computers}">
+        <td th:text="${item.getComputerId}"></td>
+        <td th:text="${item.getComputerName}"></td>
+        <td th:text="${item.getComputerModel}"></td>
+        <td th:text="${item.getComputerProcessor}"></td>
+        <td th:text="${item.getComputerProcessorFrequencyGHz}"></td>
+        <td th:text="${item.getComputerRam}"></td>
+        <td th:text="${item.getComputerRamSizeGB}"></td>
+        <td th:text="${item.getComputerVideoCard}"></td>
+        <td th:text="${item.getComputerStorage}"></td>
+        <td th:text="${item.getComputerStorageType}"></td>
+        <td th:text="${item.getComputerStorageSizeGB}"></td>
+        <td th:text="${item.getComputerOSVendor}"></td>
+        <td th:text="${item.getComputerOSVersion}"></td>
+        <td th:text="${item.getComputerOSArchitecture}"></td>
+        <td>
+            <a th:href="@{/computer/delete/{id}(id=${item.getComputerId})}">delete</a>
+            <a th:href="@{/computer/edit/{id}(id=${item.getComputerId})}">edit</a>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

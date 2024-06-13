@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UPS</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body><a href="/"><-HOME</a>
+
+<h1>All UPS</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>manufacturer</th>
+        <th>model</th>
+        <th>serialNumber</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="item: ${ups}">
+        <td th:text="${item.getUpsId}"></td>
+        <td th:text="${item.getUpsName}"></td>
+        <td th:text="${item.getUpsManufacturer}"></td>
+        <td th:text="${item.getUpsModel}"></td>
+        <td th:text="${item.getUpsSerialNumber}"></td>
+        <td>
+            <a th:href="@{/ups/delete/{id}(id=${item.getUpsId})}">delete</a>
+            <a th:href="@{/ups/edit/{id}(id=${item.getUpsId})}">edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

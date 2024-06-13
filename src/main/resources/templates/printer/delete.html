@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Printer add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Delete Printer</h1>
+<form method="post" th:action="@{/printer/delete/{id}(id=${printerDel.getPrinterId()})}" th:object="${printerDel}">
+    Id: <a th:text="${printerDel.getPrinterId()}"></a> <br/>
+    Printer name: <a th:text="${printerDel.getPrinterName()}"></a><br/>
+    Manufacturer: <a th:text="${printerDel.getPrinterName()}"></a><br/>
+    Model: <a th:text="${printerDel.getPrinterName()}"></a><br/>
+    Serial number: <a th:text="${printerDel.getPrinterName()}"></a><br/>
+    Is MFU: <a th:text="${printerDel.printerIsMFU} ? 'yes' : 'no'"></a><br/>
+    IP address: <a th:text="${printerDel.getPrinterIpAddress()}"></a><br/>
+
+    <p>You have delete Printer?</p>
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

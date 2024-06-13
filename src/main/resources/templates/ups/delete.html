@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ups add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Delete ups</h1>
+<form method="post" th:action="@{/ups/delete/{id}(id=${upsDel.getUpsId()})}" th:object="${upsDel}">
+    Id: <a th:text="${upsDel.getUpsId()}"></a> <br/>
+    Ups name: <a th:text="${upsDel.getUpsName()}"/><br/>
+    Manufacturer: <a th:text="${upsDel.getUpsManufacturer()}"/><br/>
+    Model: <a th:text="${upsDel.getUpsModel()}"/><br/>
+    Serial number: <a th:text="${upsDel.getUpsSerialNumber()}"/><br/>
+    <p>You have delete ups?</p>
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Edit printer</h1>
+
+<form method="post" th:action="@{/printer/edit/{id}(id=${editPrinter.getPrinterId()})}" th:object="${editPrinter}">
+    Id: <a th:text="${editPrinter.getPrinterId()}"></a> <br/>
+    Printer name: <input defaultValue="${editPrinter.getPrinterName()}" th:field="*{printerName}" type="text"/><br/>
+    Brand: <input defaultValue="${editPrinter.getPrinterBrand()}" th:field="*{printerBrand}" type="text"/><br/>
+    Model: <input defaultValue="${editPrinter.getPrinterModel()}" th:field="*{printerModel}" type="text"/><br/>
+    Serial number: <input defaultValue="${editPrinter.getPrinterSerialNumber()}" th:field="*{printerSerialNumber}"
+                          type="text"/><br/>
+    Is MFU: <input defaultValue="${editPrinter.getPrinterIsMfu()}" th:field="*{printerIsMFU}" type="checkbox"/><br/>
+    Model: <input defaultValue="${editPrinter.getPrinterIpAddress()}" th:field="*{printerIpAddress}" type="text"/><br/>
+
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

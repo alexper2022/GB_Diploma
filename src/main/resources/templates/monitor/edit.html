@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Edit monitor</h1>
+
+<form method="post" th:action="@{/monitor/edit/{id}(id=${editMonitor.getMonitorId()})}" th:object="${editMonitor}">
+    Id: <a th:text="${editMonitor.getMonitorId()}"></a> <br/>
+    Monitor name: <input defaultValue="${editMonitor.getMonitorName()}" th:field="*{monitorName}" type="text"/><br/>
+    Manufacturer: <input defaultValue="${editMonitor.getMonitorManufacturer()}" th:field="*{monitorManufacturer}"
+                         type="text"/><br/>
+    Model: <input defaultValue="${editMonitor.getMonitorModel()}" th:field="*{monitorModel}" type="text"/><br/>
+    Serial number: <input defaultValue="${editMonitor.getMonitorSerialNumber()}" th:field="*{monitorSerialNumber}"
+                          type="text"/><br/>
+    Diagonal: <input defaultValue="${editMonitor.getMonitorDiagonal()}" th:field="*{monitorDiagonal}"
+                     type="number"/><br/>
+    Resolution X: <input defaultValue="${editMonitor.getMonitorResolutionX()}" th:field="*{monitorResolutionX}"
+                         type="number"/><br/>
+    Resolution Y: <input defaultValue="${editMonitor.getMonitorResolutionY()}" th:field="*{monitorResolutionY}"
+                         type="number"/><br/>
+    Description: <input defaultValue="${editMonitor.getMonitorDescription()}" th:field="*{monitorDescription}"
+                        type="text"/><br/>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

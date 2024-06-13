@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Edit ups</h1>
+
+<form method="post" th:action="@{/ups/edit/{id}(id=${editUps.getUpsId()})}" th:object="${editUps}">
+    Id: <a th:text="${editUps.getUpsId()}"></a> <br/>
+    Ups name: <input defaultValue="${editUps.getUpsName()}" th:field="*{upsName}" type="text"/><br/>
+    Manufacturer: <input defaultValue="${editUps.getUpsManufacturer()}" th:field="*{upsManufacturer}"
+                         type="text"/><br/>
+    Model: <input defaultValue="${editUps.getUpsModel()}" th:field="*{upsModel}" type="text"/><br/>
+    Serial number: <input defaultValue="${editUps.getUpsSerialNumber()}" th:field="*{upsSerialNumber}"
+                          type="text"/><br/>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

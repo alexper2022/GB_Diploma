@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitors</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>All monitors</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>SerialNumber</th>
+        <th>Diagonal</th>
+        <th>ResolutionX</th>
+        <th>ResolutionY</th>
+        <th>Description</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="item: ${monitors}">
+        <td th:text="${item.getMonitorId}"></td>
+        <td th:text="${item.getMonitorName}"></td>
+        <td th:text="${item.getMonitorManufacturer}"></td>
+        <td th:text="${item.getMonitorModel}"></td>
+        <td th:text="${item.getMonitorSerialNumber}"></td>
+        <td th:text="${item.getMonitorDiagonal}"></td>
+        <td th:text="${item.getMonitorResolutionX}"></td>
+        <td th:text="${item.getMonitorResolutionY}"></td>
+        <td th:text="${item.getMonitorDescription}"></td>
+        <td>
+            <a th:href="@{/monitor/delete/{id}(id=${item.getMonitorId})}">delete</a>
+            <a th:href="@{/monitor/edit/{id}(id=${item.getMonitorId})}">edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

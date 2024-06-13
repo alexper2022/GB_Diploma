@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Delete users</h1>
+
+<form method="post" th:action="@{/user/delete/{id}(id=${userDel.getUserId()})}" th:object="${userDel}">
+    Id: <a th:text="${userDel.getUserId()}"/><br/>
+    Username: <a th:text="${userDel.getUsername()}"/><br/>
+    Role: <a th:text="${userDel.getRole()}"/><br/>
+    First Name: <a th:text="${userDel.getFirstName()}"/><br/>
+    Last Name: <a th:text="${userDel.getLastName()}"/><br/>
+    Email: <a th:text="${userDel.getEmail()}"/><br/>
+    Phone: <a th:text="${userDel.getPhone()}"/><br/>
+    <p>You have delete user?</p>
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

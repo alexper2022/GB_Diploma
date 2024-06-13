@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Edit user</h1>
+<h3>Password must be at least 8 chars long.<br/>
+    The password must not contain a space character.</h3>
+<form method="post" th:action="@{/user/edit/{id}(id=${editUser.getUserId()})}" th:object="${editUser}">
+    Id: <a th:text="${editUser.getUserId()}"></a>
+    <br/>
+    Username: <a th:text="${editUser.getUsername()}"></a><br/>
+    Password: <input th:field="*{password}" type="password"/><br/>
+    Role: <select defaultValue="${editUser.getRole()}" size="1" th:field="*{role}" type="text">
+    <option value="admin">admin</option>
+    <option value="operator">operator</option>
+</select><br/>
+    First Name: <input defaultValue="${editUser.getFirstName()}" th:field="*{firstName}" type="text"/><br/>
+    Last Name: <input defaultValue="${editUser.getLastName()}" th:field="*{lastName}" type="text"/><br/>
+    Email: <input defaultValue="${editUser.getEmail()}" th:field="*{email}" type="text"/><br/>
+    Phone: <input defaultValue="${editUser.getPhone()}" th:field="*{phone}" type="text"/><br/>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>

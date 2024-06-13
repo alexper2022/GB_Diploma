@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: GB_diplom
+  devtools:
+    add-properties: false
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/diplomdb
+    username: admin
+    password: 1
+    driver-class-name: org.postgresql.Driver
+logging:
+  level:
+    web: ERROR

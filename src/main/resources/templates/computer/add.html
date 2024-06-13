@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Add computer</h1>
+
+<form method="post" th:action="@{add}" th:object="${newComputer}">
+    Computer name: <input th:field="*{computerName}" type="text"/><br/>
+    Manufacturer: <input th:field="*{computerManufacturer}" type="text"/><br/>
+    Model: <input th:field="*{computerModel}" type="text"/><br/>
+    Processor: <input th:field="*{computerProcessor}" type="text"/><br/>
+    Processor frequency GHz: <input th:field="*{computerProcessorFrequencyGHz}" type="number"/><br/>
+    Ram: <input th:field="*{computerRam}" type="text"/><br/>
+    Ram size GB: <input th:field="*{computerRamSizeGB}" type="number"/><br/>
+    Video card: <input th:field="*{computerVideoCard}" type="text"/><br/>
+    Storage: <input th:field="*{computerStorage}" type="text"/><br/>
+    Storage type: <select size="1" th:field="*{computerStorageType}" type="text"/>
+    <option selected value="HDD">HDD</option>
+    <option value="SSD">SSD</option>
+    </select><br/>
+    Storage size GB: <input th:field="*{computerStorageSizeGB}" type="number"/><br/>
+    OS vendor: <select size="1" th:field="*{computerOSVendor}" type="text"/>
+    <option selected value="Windows">Windows</option>
+    <option value="Linux">Linux</option>
+    <option value="MacOS">MacOS</option>
+    </select><br/>
+    OS version: <input th:field="*{computerOSVersion}" type="text"/><br/>
+    OS architecture: <select size="1" th:field="*{computerOSArchitecture}" type="text"/>
+    <option selected value="x64">x64</option>
+    <option value="x32">x32</option>
+    </select><br/>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Printers</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>All printers</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>brand</th>
+        <th>model</th>
+        <th>serialNumber</th>
+        <th>isMfu</th>
+        <th>ipAddress</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="item: ${printers}">
+        <td th:text="${item.getPrinterId}"></td>
+        <td th:text="${item.getPrinterName}"></td>
+        <td th:text="${item.getPrinterBrand}"></td>
+        <td th:text="${item.getPrinterModel}"></td>
+        <td th:text="${item.getPrinterSerialNumber}"></td>
+        <td th:text="${item.printerIsMFU} ? 'yes' : 'no'"></td>
+        <td th:text="${item.getPrinterIpAddress}"></td>
+        <td>
+            <a th:href="@{/printer/delete/{id}(id=${item.getPrinterId})}">delete</a>
+            <a th:href="@{/printer/edit/{id}(id=${item.getPrinterId})}">edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

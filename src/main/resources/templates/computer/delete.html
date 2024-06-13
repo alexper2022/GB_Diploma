@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Delete computers</h1>
+
+<form method="post" th:action="@{/computer/delete/{id}(id=${computerDel.getComputerId()})}" th:object="${computerDel}">
+    Id: <a th:text="${computerDel.getComputerId()}"/><br/>
+    Computername: <a th:text="${computerDel.getComputerName()}"/><br/>
+    Manufacturer: <a th:text="${computerDel.getComputerManufacturer()}"/><br/>
+    Model: <a th:text="${computerDel.getComputerModel()}"/><br/>
+    Processor: <a th:text="${computerDel.getComputerProcessor()}"/><br/>
+    Processor frequency GHz: <a th:text="${computerDel.getComputerProcessorFrequencyGHz()}"/><br/>
+    Ram: <a th:text="${computerDel.getComputerRam()}"/><br/>
+    Ram size GB: <a th:text="${computerDel.getComputerRamSizeGB()}"/><br/>
+    Video Card: <a th:text="${computerDel.getComputerVideoCard()}"/><br/>
+    Storage: <a th:text="${computerDel.getComputerStorage()}"/><br/>
+    Storage type: <a th:text="${computerDel.getComputerStorageType()}"/><br/>
+    Storage size GB: <a th:text="${computerDel.getComputerStorageSizeGB()}"/><br/>
+    OS vendor: <a th:text="${computerDel.getComputerOSVendor()}"/><br/>
+    OS version: <a th:text="${computerDel.getComputerOSVersion()}"/><br/>
+    OS architecture: <a th:text="${computerDel.getComputerOSArchitecture()}"/><br/>
+    <p>You have delete computer?</p>
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

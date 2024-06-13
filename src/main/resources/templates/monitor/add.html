@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Add monitor</h1>
+
+<form method="post" th:action="@{add}" th:object="${newMonitor}">
+    Monitor name: <input th:field="*{monitorName}" type="text"/><br/>
+    Manufacturer: <input th:field="*{monitorManufacturer}" type="text"/><br/>
+    Model: <input th:field="*{monitorModel}" type="text"/><br/>
+    Serial number: <input th:field="*{monitorSerialNumber}" type="text"/><br/>
+    Diagonal: <input th:field="*{monitorDiagonal}" type="number"/><br/>
+    Resolution X: <input th:field="*{monitorResolutionX}" type="number"/><br/>
+    Resolution Y: <input th:field="*{monitorResolutionY}" type="number"/><br/>
+    Description: <input th:field="*{monitorDescription}" type="text"/><br/>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

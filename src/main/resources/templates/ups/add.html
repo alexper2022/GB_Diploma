@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User add</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a href="/"><-HOME</a>
+<h1>Add ups</h1>
+
+<form method="post" th:action="@{add}" th:object="${newUps}">
+    Ups name: <input th:field="*{upsName}" type="text"/><br/>
+    Manufacturer: <input th:field="*{upsManufacturer}" type="text"/><br/>
+    Model: <input th:field="*{upsModel}" type="text"/><br/>
+    Serial number: <input th:field="*{upsSerialNumber}" type="text"/><br/>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

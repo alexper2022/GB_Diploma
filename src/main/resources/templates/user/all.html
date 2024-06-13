@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style type="text/css">
+        TABLE {
+            border: 2px solid black;
+        }
+
+        TH {
+            text-align: center;
+            background: black;
+            color: white;
+        }
+
+        TD {
+            text-align: right;
+            background: white;
+            color: black;
+        }
+
+        TD, TH {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body><a href="/"><-HOME</a>
+
+<h1>All users</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>username</th>
+        <th>role</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>created date</th>
+        <th>end date</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="item: ${userList}">
+        <td th:text="${item.getUserId}"></td>
+        <td th:text="${item.getUsername}"></td>
+        <td th:text="${item.getRole}"></td>
+        <td th:text="${item.getFirstName}"></td>
+        <td th:text="${item.getLastName}"></td>
+        <td th:text="${item.getEmail}"></td>
+        <td th:text="${item.getPhone}"></td>
+        <td th:text="${item.getCreatedAt}"></td>
+        <td th:text="${item.getEndAt}"></td>
+        <td>
+            <a th:href="@{/user/delete/{id}(id=${item.getUserId})}">delete</a>
+            <a th:href="@{/user/edit/{id}(id=${item.getUserId})}">edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
